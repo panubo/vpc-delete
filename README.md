@@ -21,7 +21,7 @@ main(profile = '<YOUR_PROFILE>')
 **Usage:**
 
 ```
-python remove_vpc.py
+python remove_default_vpcs.py
 ```
 
 **Output:**
@@ -47,4 +47,3 @@ VPC vpc-1839c57d has existing resources in the us-west-2 region.
 **References:**
 
 * https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
-
