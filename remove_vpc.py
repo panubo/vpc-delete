@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 
 Remove those pesky AWS default VPCs.
@@ -86,7 +87,7 @@ def delete_rtbs(ec2, args):
       if main == True:
         continue
       rtb_id = rtb['RouteTableId']
-        
+
       try:
         result = ec2.delete_route_table(RouteTableId=rtb_id)
       except ClientError as e:
@@ -180,7 +181,7 @@ def get_regions(ec2):
   return regions
 
 
-def main(profile):
+def main():
   """
   Do the work..
 
@@ -191,13 +192,13 @@ def main(profile):
   3.) Delete route tables
   4.) Delete network access lists
   5.) Delete security groups
-  6.) Delete the VPC 
+  6.) Delete the VPC
   """
 
   # AWS Credentials
   # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
 
-  session = boto3.Session(profile_name=profile)
+  session = boto3.Session()
   ec2 = session.client('ec2', region_name='us-east-1')
 
   regions = get_regions(ec2)
@@ -252,5 +253,4 @@ def main(profile):
 
 if __name__ == "__main__":
 
-  main(profile = '<YOUR_PROFILE>')
-
+  main()
