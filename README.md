@@ -10,6 +10,14 @@ This Python script attempts to delete the AWS default VPC in each region.
    * Botocore version: 1.10.50
 * Valid AWS API keys/profile
 
+**Usage w/ [`uv`](https://docs.astral.sh/uv/)**
+
+`uv` will automatically create a virtual environment and install dependencies when run.
+
+```shell
+uv run remove_default_vpcs.py
+```
+
 **Usage:**
 
 Uses default AWS profile and current shell credentials.
